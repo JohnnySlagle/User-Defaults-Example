@@ -7,7 +7,6 @@
 //
 
 #import "JSTableViewController.h"
-
 #import "JSPerson.h"
 
 #pragma mark - Key for Persons Array
@@ -53,6 +52,13 @@ static NSString *JSPersonsArrayKey = @"personsArray";
     
     // Add Button
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPerson)];
+
+    // Text Clear Button
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleBordered target:self action:@selector(clearPersons)];
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor redColor]];
+    
+    // Trash Can Clear Button
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(clearPersons)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,7 +117,7 @@ static NSString *JSPersonsArrayKey = @"personsArray";
     self.persons = [sortedArray mutableCopy];
     
     // Reload the tableView's section
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self reloadTable];
     
     // Now save persons to NSUserDefaults
     [self savePersons];
@@ -147,6 +153,22 @@ static NSString *JSPersonsArrayKey = @"personsArray";
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.persons]
                                               forKey:JSPersonsArrayKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark - Clearing Method
+- (void) clearPersons {
+    // Clear Array
+    self.persons = [NSMutableArray array];
+    
+    // Save cleaned Array
+    [self savePersons];
+    
+    // Reload Table
+    [self reloadTable];
+}
+
+- (void) reloadTable {
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Lazy Instantiation
