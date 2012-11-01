@@ -42,7 +42,6 @@
 		B24F8D03164312070092B794 /* JSPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSPerson.m; sourceTree = "<group>"; };
 		B24F8D05164315EC0092B794 /* Names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Names.plist; sourceTree = "<group>"; };
 		B24F8D0916432D700092B794 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe.md; sourceTree = "<group>"; };
-		B24F8D1216432F8D0092B794 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +61,6 @@
 		B24F8CCD1643117E0092B794 = {
 			isa = PBXGroup;
 			children = (
-				B24F8D1216432F8D0092B794 /* QuartzCore.framework */,
 				B24F8D0916432D700092B794 /* ReadMe.md */,
 				B24F8CE21643117E0092B794 /* UserDefaultsExample */,
 				B24F8CDB1643117E0092B794 /* Frameworks */,
